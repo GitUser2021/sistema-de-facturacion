@@ -1,0 +1,395 @@
+:root{
+    --title-color: #697c37;
+    --options-color: #ccda46;
+    --table-color: #f4eec7;
+    --background-color:#b0a160;
+    --font-color: #434e52;
+    --footer-color: #434e52;
+
+}
+
+*{
+    box-sizing: border-box!important;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: var(--background-color);
+    color: var(--font-color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Courier New";
+}
+header{
+    height:  40px;
+    width: 100vw;
+    background-color: var(--footer-color);
+}
+
+footer{
+    height: 40px;
+    width: 100vw;
+    background-color: var(--footer-color);
+    align-self: flex-end;
+    text-align: center;
+    line-height: 40px;
+    font-size: 0.8em;
+    color: var(--table-color);
+
+}
+
+.hidden-table{
+    display: none;
+}
+
+/*********************************************************************************************/
+.nueva-factura-left, .nueva-factura-right {
+    width: 47%;
+    height: 90vh;
+    border: 1px solid var(--footer-color);
+}
+.nueva-factura-right{
+    /*opacity: 0.3;*/
+    /*z-index: -1;*/
+}
+
+
+/*************************************  LEFT SIDE  *****************************************************************/
+
+/************************************** TOP SIDE *********************************/
+h1{
+    background-color: var(--title-color);
+    text-align: center;
+    font-size: 1.5em;
+    padding: 10px;
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.nueva-factura-opciones{
+    display: flex;
+    background-color: var(--options-color);
+}
+.nueva-factura-opciones-left,.nueva-factura-opciones-right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.nueva-factura-opciones-left form{
+    text-align: center;
+}
+.nueva-factura-opciones-left input{
+    margin-top: 5px;
+    width: 15vw !important;
+}
+#cliente-encontrado{
+    width: 21.5vw!important;
+    height: 2vw!important;
+    position: absolute;
+    top: 110px;
+    left: 35px;
+}
+.nueva-factura-opciones-left > button {
+    width: 14vw;
+    font-size: 1.2vw;
+    margin-top: 38px;
+    align-self: center;
+}
+
+.nueva-factura-opciones-right form{
+    width: 100%;
+    font-size: 1em;
+    text-align: center;
+}
+.nueva-factura-opciones-right select{
+    width: 10vw!important;
+    margin-top: 5px;
+    height: fit-content;
+}
+.nueva-factura-opciones-right form select:nth-child(2){
+    width: 10vw!important;
+}
+.nueva-factura-opciones-right > button {
+    width: 10vw;
+    font-size: 1.2vw;
+    margin-top: 10px;
+    align-self: center;
+}
+
+/************************************** BOTTOM SIDE *********************************/
+
+.nueva-factura-bottom{
+    margin-top: 20px;
+    background-color: var(--table-color);
+    max-height: 65%;
+    overflow-y: auto;
+}
+
+/*************************************  RIGHT SIDE  *****************************************************************/
+
+.nueva-factura-buscar-right{
+    background-color: var(--options-color);
+    text-align: center;
+    margin: 5px;
+}
+.nueva-factura-buscar-right form div{
+    width: 70%!important;
+}
+
+.nueva-factura-buscar-right input{
+    width: 20vw!important;
+}
+.nueva-factura-tabla-productos{
+    width: 40vw !important;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--table-color);
+}
+.nueva-factura-tabla-productos input{
+    width: 90% !important;
+}
+.nueva-factura-tabla-productos button{
+    padding: 5px;
+}
+
+.total-div{
+    border: 2px solid black;
+    background-color: var(--table-color);
+    display: flex;
+    justify-content: space-around;
+}
+#total{
+}
+
+/* PRODUCTOS PAGE*/
+#producto{
+    width:30vw;
+}
+
+/* MEDIA QUERY*/
+@media (max-width: 1024px){
+    .nueva-factura-opciones{
+        flex-direction: column;
+    }
+    .nueva-factura-opciones-left,.nueva-factura-opciones-right{
+        width: 100%;
+    }
+    .nueva-factura-opciones-right{
+        height: 13vh;
+    }
+    .nueva-factura-opciones-left input{
+        margin: 0!important;
+        width: 100%!important;
+    }
+    #cliente-encontrado{
+        width: 21.5vw!important;
+        height: 3vw!important;
+        position: absolute;
+        top: 200px;
+        left: 110px;
+    }
+    .nueva-factura-opciones-left > button {
+        width: 14vw;
+        font-size: 1.2vw;
+        position: absolute;
+        top: 155px;
+        left: 60px;
+    }
+    .nueva-factura-opciones-right > button {
+        width: 10vw;
+        font-size: 1.2vw;
+        position: absolute;
+        top: 145px;
+        left: 300px;
+    }
+    .nueva-factura-buscar-right form .form-group{
+        width: 100% !important;
+    }
+    .nueva-factura-buscar-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 900px){
+    body{
+        flex-direction: column;
+    }
+    .nueva-factura-left, .nueva-factura-right {
+        width: 80%;
+        height: 90vh;
+        border: 1px solid var(--footer-color);
+    }
+    .nueva-factura-opciones{
+        flex-direction: row;
+    }
+    .nueva-factura-opciones-left,.nueva-factura-opciones-right{
+        width: 50%;
+        height: 15vh;
+    }
+    .nueva-factura-opciones-right{
+        justify-content: center;
+    }
+    .nueva-factura-opciones-right form{
+        width: 100%;
+    }
+    .nueva-factura-opciones-right form .form-group{
+        width: 100%;
+    }
+    .nueva-factura-opciones-right form .form-group select{
+        width: 55%!important;
+    }
+    .nueva-factura-opciones-right form .form-group:first-child select{
+        width: 67%!important;
+    }
+    .nueva-factura-opciones-left input{
+        margin-top: 5px;
+        width: 70%;
+    }
+    #cliente-encontrado{
+        width: 21.5vw!important;
+        height: 3vw!important;
+        position: absolute;
+        top: 165px;
+        left: 320px;
+    }
+    .nueva-factura-opciones-left > button {
+        top: 115px;
+        left: 150px;
+    }
+    .nueva-factura-opciones-right > button {
+        top: 105px;
+        left: 300px;
+    }
+    .nueva-factura-tabla-productos{
+        width: 70vw!important;
+    }
+}
+
+@media (max-width: 800px){
+    .nueva-factura-opciones{
+        flex-direction: column;
+    }
+    .nueva-factura-opciones-left,.nueva-factura-opciones-right{
+        width: 100%;
+    }
+    .nueva-factura-opciones-left{
+        height: 8vh;
+    }
+    .nueva-factura-opciones-left form{
+        margin: 5px auto!important;
+    }
+    .nueva-factura-opciones-left form button{
+        margin: -15px 0 0 20px!important;
+    }
+    .nueva-factura-opciones-right{
+        height: 20vh;
+    }
+    .nueva-factura-opciones-right form{
+        height: 40vh;
+        flex-direction: column;
+    }
+    .nueva-factura-opciones-right form .form-group{
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .nueva-factura-opciones-right form .form-group select{
+        width: 56% !important;
+        margin-top: 0px;
+    }
+    .nueva-factura-opciones-right form .form-group label{
+        font-size: smaller;
+        margin-top: 8px;
+    }
+    .nueva-factura-opciones-left > button {
+        top: 185px;
+        left: 90px;
+        font-size: initial;
+        width: initial;
+    }
+    .nueva-factura-opciones-right > button {
+        top: 175px;
+        left: 300px;
+        font-size: initial;
+        width: initial;
+    }
+    .nueva-factura-bottom{
+        height: 50vh;
+    }
+    .nueva-factura-buscar-right form{
+        width: 100% !important;
+        margin-top: 15px;
+    }
+    .nueva-factura-buscar-right form .form-group{
+        width: 100% !important;
+        display: flex;
+        flex-direction: row;
+    }
+    .nueva-factura-buscar-right form input{
+        width: 80%!important;
+    }
+    #cliente-encontrado{
+        width: 30vw!important;
+        height: 5vw!important;
+        position: absolute;
+        top: 245px;
+        left: 165px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

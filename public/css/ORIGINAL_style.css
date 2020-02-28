@@ -1,0 +1,215 @@
+*{
+    box-sizing: border-box!important;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #8D6E63;
+    color: #EFEBE9;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 100vh;
+}
+header{
+    height:  40px;
+    width: 100vw;
+    background-color: #3E2723;
+}
+
+li a{
+    display: block;
+    font-size: 0.8em;
+    line-height: 40px;
+    padding: 0 10px 0 10px;
+    height: 40px;
+    color: #EFEBE9!important;
+    text-decoration: none!important;
+}
+a:hover{
+    color: #7fdbca!important;
+    background-color: #5B995B;
+}
+
+nav{
+    padding: 0!important;
+    height: 40px;
+}
+
+nav button{
+    display: flex;
+    align-self: center;
+}
+
+#navbarNav{
+    justify-content: center;
+}
+.navbar-nav{
+    justify-content: space-around;
+    width: 80vw;
+}
+i{
+    margin-right: 5px;
+}
+
+.last {
+    margin-left: auto;
+}
+.div-clientes{
+    font-size: small;
+    height: 80vh;
+    width: 80vw;
+    background-color: #8cd0d3;
+}
+
+.form-container{
+    height: 92.2vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.div-nueva-factura{
+    display: flex;
+}
+
+.nueva-factura-productos{
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    }
+
+.header{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-size: 0.8em;
+    background-color: lightgoldenrodyellow;
+    margin: 0px 0 20px 0;
+}
+.header span{
+    margin: 0 10px!important;
+    color: #2f1e2e;
+}
+.btn-add{
+    margin: 0 10px 0 auto!important;
+    padding: 0.5em;
+    font-size: 0.8em;
+}
+.form-add{
+    margin: 15px 10px 0 auto!important;
+}
+
+.form-search{
+    margin-top: -50px!important;
+}
+#tabla-factura{
+    font-size: smaller;
+}
+
+.form{
+font-size: 1vw;
+}
+
+.btn{
+    display: flex;
+    align-self: flex-start;
+    justify-content: space-between;
+}
+
+.btn-buscar{
+    border: 1px solid green;
+    margin: 0px 0 0 0!important;
+}
+
+.tabla-factura{
+ margin: -230px 0 0 0!important;
+}
+
+
+.my-modal{
+    font-size: 1vw;
+}
+.nueva-factura-input{
+    width: 20vw!important;
+}
+
+#link_agregar_producto_factura{
+    height: 1vw;
+    width: 10vw;
+    line-height: 0.1em;
+    font-size: 0.5em;
+}
+
+form{
+    display: flex;
+    justify-content: space-between;
+}
+form button{
+    margin-right: 10px;
+    font-size: 0.8em!important;
+    margin-top: -8px;
+}
+input{
+    font-size: 0.8em!important;
+    margin-left: -8px;
+    margin-top: -8px;
+    width: 250px!important;
+
+}
+
+table thead,td,th{
+    line-height: 0.5em;
+}
+
+.table-nueva-factura{
+}
+.table-nueva-factura td, .table-nueva-factura th{
+    padding: 10px;
+}
+.btn-nueva-factura {
+    line-height: initial;
+    margin: 0 15px 0 15px!important;
+}
+.table-nueva-factura td:nth-child(5),.table-nueva-factura td:nth-child(6){
+    margin: 0!important;
+    padding: 0!important;
+}
+.input-nueva-factura {
+    margin: initial!important;
+    margin: 0px 0 0 50px!important;
+    width: 40px!important;
+    height: 25px!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    height: 40px;
+    width: 100vw;
+    background-color: #3E2723;
+    align-self: flex-end;
+    text-align: center;
+    line-height: 40px;
+    font-size: 0.8em;
+}
