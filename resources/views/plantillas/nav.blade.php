@@ -47,7 +47,6 @@
                 </li>
             @endguest
         </ul>
-        <a class="last" href="#"><i class="fas fa-power-off"></i>SALIR</a>
     </div>
 
 </nav>
