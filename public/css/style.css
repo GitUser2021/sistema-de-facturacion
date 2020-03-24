@@ -60,7 +60,7 @@ a i,#navbarNav a{
     padding-right: 0.5vw;
     color: var(--table-color);
     height: 40px!important;
-    line-height: 40px!important;
+    line-height: 40px;
 }
 
 li:hover,li:hover a, a:hover {
@@ -166,7 +166,9 @@ li a {
     font-size: smaller;
 }
 
-
+.salir{
+    line-height: 24px!important;
+}
 
 
 
