@@ -5,7 +5,6 @@
     --background-color:#b0a160;
     --font-color: #434e52;
     --footer-color: #434e52;
-
 }
 
 *{
@@ -13,6 +12,7 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     background-color: var(--background-color);
     color: var(--font-color);
@@ -23,8 +23,10 @@ body {
     min-height: 100vh;
     font-family: "Courier New";
 }
+
 header{
-    height:  40px;
+    align-self: flex-start;
+    height: 40px;
     width: 100vw;
     background-color: var(--footer-color);
 }
@@ -38,351 +40,131 @@ footer{
     line-height: 40px;
     font-size: 0.8em;
     color: var(--table-color);
-
 }
 
-.hidden-table{
-    display: none;
+nav{
+    padding: 0 !important;
 }
 
-/*********************************************************************************************/
-.nueva-factura-left, .nueva-factura-right {
-    width: 47%;
-    height: 90vh;
-    border: 1px solid var(--footer-color);
-}
-.nueva-factura-right{
-    /*opacity: 0.3;*/
-    /*z-index: -1;*/
+#navbarNav{
+    justify-content: space-around;
+    height: 40px!important;
 }
 
-
-/*************************************  LEFT SIDE  *****************************************************************/
-
-/************************************** TOP SIDE *********************************/
-h1{
-    background-color: var(--title-color);
-    text-align: center;
-    font-size: 1.5em;
-    padding: 10px;
-    margin: 0 0 10px 0;
-    font-weight: bold;
-}
-
-.nueva-factura-opciones{
-    display: flex;
-    background-color: var(--options-color);
-}
-.nueva-factura-opciones-left,.nueva-factura-opciones-right{
+#navbarNav ul{
+    justify-content: space-around;
     width: 50%;
+}
+
+a i,#navbarNav a{
+    padding-right: 0.5vw;
+    color: var(--table-color);
+    height: 40px!important;
+    line-height: 40px!important;
+}
+
+li:hover,li:hover a, a:hover {
+    text-decoration: none;
+    color: black!important;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+li a {
+    display: inline-block;
+    height: 40px;
+}
+
+#navbarNav li{
+    padding: 0 5px;
+}
+
+#main{
+    height: 85vh !important;
+}
+
+#form-lista-facturas{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
-.nueva-factura-opciones-left form{
+
+#div-barra-busqueda{
+    width: 100% !important;
+    justify-content: space-between;
+}
+
+#div-barra-busqueda button{
+    margin-top: 8px!important;
+}
+
+#div-barra-busqueda input{
+    width: 55vw;
+}
+
+#nueva-factura-main{
+    display: flex;
+    min-height: 87vh !important;
+}
+
+.nueva-factura-left{
+    width: 50%;
+}
+
+.nueva-factura-left h1, .nueva-factura-right h1{
     text-align: center;
 }
-.nueva-factura-opciones-left input{
-    margin-top: 5px;
-    width: 15vw !important;
-}
-#cliente-encontrado{
-    width: 21.5vw!important;
-    height: 2vw!important;
-    position: absolute;
-    top: 110px;
-    left: 35px;
-}
-.nueva-factura-opciones-left > button {
-    width: 14vw;
-    font-size: 1.2vw;
-    margin-top: 38px;
-    align-self: center;
+
+.nueva-factura-right form input{
+    width: 50vw!important;
 }
 
-.nueva-factura-opciones-right form{
-    width: 100%;
-    font-size: 1em;
-    text-align: center;
-}
-.nueva-factura-opciones-right select{
-    width: 10vw!important;
-    margin-top: 5px;
-    height: fit-content;
-}
-.nueva-factura-opciones-right form select:nth-child(2){
-    width: 10vw!important;
-}
-.nueva-factura-opciones-right > button {
-    width: 10vw;
-    font-size: 1.2vw;
-    margin-top: 10px;
-    align-self: center;
-}
-
-/************************************** BOTTOM SIDE *********************************/
-
-.nueva-factura-bottom{
-    margin-top: 20px;
-    background-color: var(--table-color);
-    max-height: 65%;
+#tabla-productos{
     overflow-y: auto;
 }
 
-/*************************************  RIGHT SIDE  *****************************************************************/
-
-.nueva-factura-buscar-right{
-    background-color: var(--options-color);
-    text-align: center;
-    margin: 5px;
-}
-.nueva-factura-buscar-right form div{
-    width: 70%!important;
+#cliente-encontrado {
+    width: 20.5vw;
+    margin-top: 5px!important;
+    font-size: 0.7rem;
 }
 
-.nueva-factura-buscar-right input{
-    width: 20vw!important;
-}
-.nueva-factura-tabla-productos{
-    width: 40vw !important;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: var(--table-color);
-}
-.nueva-factura-tabla-productos input{
-    width: 90% !important;
-}
-.nueva-factura-tabla-productos button{
-    padding: 5px;
+#form-factura button {
+     margin-top: 5px!important;
 }
 
-.total-div{
-    border: 2px solid black;
-    background-color: var(--table-color);
+#form-factura div{
     display: flex;
-    justify-content: space-around;
-}
-#total{
-}
-
-/* PRODUCTOS PAGE*/
-#producto{
-    width:30vw;
+    margin-top: 5px!important;
+    width: 50%;
 }
 
-/* MEDIA QUERY*/
-@media (max-width: 1024px){
-    .nueva-factura-opciones{
-        flex-direction: column;
-    }
-    .nueva-factura-opciones-left,.nueva-factura-opciones-right{
-        width: 100%;
-    }
-    .nueva-factura-opciones-right{
-        height: 13vh;
-    }
-    .nueva-factura-opciones-left input{
-        margin: 0!important;
-        width: 100%!important;
-    }
-    #cliente-encontrado{
-        width: 21.5vw!important;
-        height: 3vw!important;
-        position: absolute;
-        top: 200px;
-        left: 110px;
-    }
-    .nueva-factura-opciones-left > button {
-        width: 14vw;
-        font-size: 1.2vw;
-        position: absolute;
-        top: 155px;
-        left: 60px;
-    }
-    .nueva-factura-opciones-right > button {
-        width: 10vw;
-        font-size: 1.2vw;
-        position: absolute;
-        top: 145px;
-        left: 300px;
-    }
-    .nueva-factura-buscar-right form .form-group{
-        width: 100% !important;
-    }
-    .nueva-factura-buscar-right {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+#medio_de_pago {
+    width: 45% !important;
+    font-size: 0.7rem;
 }
 
-@media (max-width: 900px){
-    body{
-        flex-direction: column;
-    }
-    .nueva-factura-left, .nueva-factura-right {
-        width: 80%;
-        height: 90vh;
-        border: 1px solid var(--footer-color);
-    }
-    .nueva-factura-opciones{
-        flex-direction: row;
-    }
-    .nueva-factura-opciones-left,.nueva-factura-opciones-right{
-        width: 50%;
-        height: 15vh;
-    }
-    .nueva-factura-opciones-right{
-        justify-content: center;
-    }
-    .nueva-factura-opciones-right form{
-        width: 100%;
-    }
-    .nueva-factura-opciones-right form .form-group{
-        width: 100%;
-    }
-    .nueva-factura-opciones-right form .form-group select{
-        width: 55%!important;
-    }
-    .nueva-factura-opciones-right form .form-group:first-child select{
-        width: 67%!important;
-    }
-    .nueva-factura-opciones-left input{
-        margin-top: 5px;
-        width: 70%;
-    }
-    #cliente-encontrado{
-        width: 21.5vw!important;
-        height: 3vw!important;
-        position: absolute;
-        top: 165px;
-        left: 320px;
-    }
-    .nueva-factura-opciones-left > button {
-        top: 115px;
-        left: 150px;
-    }
-    .nueva-factura-opciones-right > button {
-        top: 105px;
-        left: 300px;
-    }
-    .nueva-factura-tabla-productos{
-        width: 70vw!important;
-    }
+#vendedor {
+    font-size: 0.7rem;
+    width: 15vw!important;
 }
 
-@media (max-width: 800px){
-    .nueva-factura-opciones{
-        flex-direction: column;
-    }
-    .nueva-factura-opciones-left,.nueva-factura-opciones-right{
-        width: 100%;
-    }
-    .nueva-factura-opciones-left{
-        height: 8vh;
-    }
-    .nueva-factura-opciones-left form{
-        margin: 5px auto!important;
-    }
-    .nueva-factura-opciones-left form button{
-        margin: -15px 0 0 20px!important;
-    }
-    .nueva-factura-opciones-right{
-        height: 20vh;
-    }
-    .nueva-factura-opciones-right form{
-        height: 40vh;
-        flex-direction: column;
-    }
-    .nueva-factura-opciones-right form .form-group{
-        width: 100%;
-        margin: 0;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
-    .nueva-factura-opciones-right form .form-group select{
-        width: 56% !important;
-        margin-top: 0px;
-    }
-    .nueva-factura-opciones-right form .form-group label{
-        font-size: smaller;
-        margin-top: 8px;
-    }
-    .nueva-factura-opciones-left > button {
-        top: 185px;
-        left: 90px;
-        font-size: initial;
-        width: initial;
-    }
-    .nueva-factura-opciones-right > button {
-        top: 175px;
-        left: 300px;
-        font-size: initial;
-        width: initial;
-    }
-    .nueva-factura-bottom{
-        height: 50vh;
-    }
-    .nueva-factura-buscar-right form{
-        width: 100% !important;
-        margin-top: 15px;
-    }
-    .nueva-factura-buscar-right form .form-group{
-        width: 100% !important;
-        display: flex;
-        flex-direction: row;
-    }
-    .nueva-factura-buscar-right form input{
-        width: 80%!important;
-    }
-    #cliente-encontrado{
-        width: 30vw!important;
-        height: 5vw!important;
-        position: absolute;
-        top: 245px;
-        left: 165px;
-    }
+.div-left form:first-of-type input{
+    width: 37vw;
 }
 
+.div-left form button{
+    margin-top: 0px!important;
+    margin-left: 5px;
+}
 
+.div-left{
+    height: 85vh;
+    overflow-y: auto;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#tabla-clientes{
+    font-size: smaller;
+}
 
 
 

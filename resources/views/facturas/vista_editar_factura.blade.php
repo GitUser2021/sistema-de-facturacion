@@ -1,4 +1,4 @@
-@include('head')
+@include('plantillas.head')
 @section('title','Factura Detallada')
 
 <form action="agregar_factura" method="post">
@@ -48,4 +48,4 @@
             </tbody>
         </table>
 
-@include('footer')
+@include('plantillas.footer')

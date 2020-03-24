@@ -7,8 +7,8 @@ use App\Vendedor;
 use App\Factura;
 use App\Producto;
 use App\Detalle_factura;
-
 use Illuminate\Http\Request;
+use mysql_xdevapi\Exception;
 
 class FacturasController extends Controller
 {
@@ -19,6 +19,8 @@ class FacturasController extends Controller
      */
     public function index(Request $request)
     {
+
+        if($request->mensaje){ dd($request->mensaje) ;}
         session_start();
         define('PAGE',5);
 
@@ -29,11 +31,11 @@ class FacturasController extends Controller
             $facturas = Factura::paginate(PAGE);
            $_SESSION['clientes'] = Cliente::get();
            $_SESSION['vendedores'] = Vendedor::get();
-            return view('vista_facturas', ['facturas' => $facturas]);
+            return view('facturas/vista_facturas', ['facturas' => $facturas]);
         }
         if (is_numeric($input)) {
             $facturas = Factura::where('id_factura', 'like', $input . '%')->paginate(PAGE);
-            return view('vista_facturas', ['facturas' => $facturas]);
+            return view('facturas/vista_facturas', ['facturas' => $facturas]);
         }
         if (is_string($input)) {
             $clientes = Cliente::where('Nombre', 'like', $input . '%')->get();
@@ -42,7 +44,7 @@ class FacturasController extends Controller
                 array_push($id_clientes, $cliente->id_cliente);
             }
             $facturas = Factura::whereIn('id_cliente', $id_clientes)->paginate(PAGE);
-            return view('vista_facturas', ['facturas' => $facturas]);
+            return view('facturas/vista_facturas', ['facturas' => $facturas]);
         }
     }
 
@@ -57,7 +59,7 @@ class FacturasController extends Controller
         $vendedores = Vendedor::get();
         $detalle_facturas = Detalle_factura::get();
         $productos = Producto::get();
-        return view('form_nueva_factura',['clientes'=>$clientes,'vendedores'=>$vendedores,'detalle_facturas'=>$detalle_facturas,'productos'=>$productos]);
+        return view('facturas/form_nueva_factura',['clientes'=>$clientes,'vendedores'=>$vendedores,'detalle_facturas'=>$detalle_facturas,'productos'=>$productos])->with('titulo','NUEVA');
     }
 
     /**
@@ -72,14 +74,12 @@ class FacturasController extends Controller
     $id_cliente = $request->id_cliente;
     $id_vendedor = $request->vende;
     $total_factura = $request->total_factura;
-
     $factura = new Factura;
     $factura->id_cliente = $id_cliente;
     $factura->id_vendedor = $id_vendedor;
     $factura->total_venta = $total_factura;
     $factura->estado = 'pendiente';
     $factura->save();
-
     $id_factura = $factura->id_factura;
     foreach ($carrito as $key => $carrito) {
         $detalle_factura = new Detalle_factura;
@@ -107,7 +107,7 @@ class FacturasController extends Controller
       }else{
         $factura = $request->imprimir_factura;
       }
-        return view( 'pdf',['factura'=>$factura]);
+        return view( 'plantillas/pdf',['facturas/factura'=>$factura]);
     }
 
     /**
@@ -141,8 +141,13 @@ class FacturasController extends Controller
      */
     public function destroy($id)
     {
-//        dd($id);
-        $factura = Factura::find($id);
-        $factura->delete();
+        try {
+            Factura::find($id)->delete();
+            Detalle_factura::whereIn('id_factura',[$id])->delete() ;
+            return redirect('facturas')->with('mensaje','Factura: eliminada correctamente.');
+//            throw new \Exception('Some Error Message');
+        }catch (\Throwable $exception){
+            echo 'Error:->'.$exception->getMessage();
+        }
     }
 }

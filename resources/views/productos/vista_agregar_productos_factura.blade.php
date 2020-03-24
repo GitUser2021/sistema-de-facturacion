@@ -1,4 +1,4 @@
-@include('head')
+@include('plantillas.head')
 
 @section('title','Productos')
     <div class="div-2">
@@ -49,4 +49,4 @@
 
 </script>
 
-@include('footer')
+@include('plantillas.footer')

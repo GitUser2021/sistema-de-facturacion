@@ -25,7 +25,7 @@ class ClientesController extends Controller
         }
         if (!isset($name) ) {
             $clientes = Cliente::get();
-            return view('vista_clientes',['clientes'=>$clientes]);
+            return view('clientes/vista_clientes',['clientes'=>$clientes]);
         }elseif($name == 'all'){
             $clientes = Cliente::get();
             return json_encode($clientes);
@@ -43,7 +43,7 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        return view('form_nuevo_cliente');
+        return view('clientes/form_nuevo_cliente');
     }
 
     /**
@@ -73,16 +73,19 @@ class ClientesController extends Controller
     public function show(Request $request)
     {
 
+        $titulo = $request->titulo;
+        $nombre = $request->nombre;
         $vendedores = Vendedor::get();
         $productos = Producto::get();
-        $nombre = $request->cliente;
+//        $nombre = $request->cliente;
         $cliente = Cliente::where('Nombre',$nombre)->firstOr(function (){
             $cliente = new \stdClass();
-            $cliente->Nombre = 'Cliente no encontrado!';
-            $cliente->id_cliente = '';
+            $cliente->Nombre = 'no encontrado!';
+            $cliente->id_cliente = 'xx';
             return $cliente;
         });
-        return view('form_nueva_factura',['cliente'=>$cliente,'vendedores'=>$vendedores,'productos'=>$productos]);
+        return json_encode($cliente);
+//        return view('facturas/form_nueva_factura',['cliente'=>$cliente,'vendedores'=>$vendedores,'productos'=>$productos,'id'=>$id])->with('titulo',$titulo);
     }
 
     /**
@@ -93,7 +96,11 @@ class ClientesController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $cliente = Cliente::find($id);
+        $editar = 'editar';
+        return view('clientes/form_nuevo_cliente',['cliente'=>$cliente,'editar'=>$editar,'id'=>$id]);
+
     }
 
     /**
@@ -105,7 +112,33 @@ class ClientesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'direccion' => 'required|max:30',
+        ]);
+
+
+        $nombre = $request->nombre;
+        $telefono = $request->telefono;
+        $email = $request->email;
+        $direccion = $request->direccion;
+        $estado = $request->estado;
+
+        try {
+            $cliente = Cliente::find($id);
+            $cliente->Nombre = $nombre;
+            $cliente->Telefono = $telefono;
+            $cliente->Email = $email;
+            $cliente->Direccion = $direccion;
+            $cliente->Estado = $estado;
+
+            $cliente->save();
+
+            return redirect('lista_clientes')->with('mensaje','Cliente actualizado correctamente.');
+
+        }catch (\Throwable $error){
+          echo $error->getMessage() ;
+        };
+
     }
 
     /**
@@ -116,6 +149,7 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cliente::find($id)->delete();
+        return redirect('lista_clientes');
     }
 }

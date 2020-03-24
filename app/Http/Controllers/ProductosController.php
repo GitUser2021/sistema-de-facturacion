@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cliente;
 use Illuminate\Http\Request;
 use App\Producto;
 
@@ -22,7 +23,7 @@ class ProductosController extends Controller
         }
         if (!isset($p) ) {
             $productos = Producto::get();
-            return view('vista_productos',['productos'=>$productos]);
+            return view('productos/vista_productos',['productos'=>$productos]);
         }else
             if($p == 'all'){
             $productos = Producto::get();
@@ -39,7 +40,7 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        return view('form_nuevo_producto');
+        return view('productos/form_nuevo_producto');
     }
 
     /**
@@ -55,7 +56,7 @@ class ProductosController extends Controller
         $producto->Producto = $request->producto;
         $producto->Precio = $request->precio;
         $producto->save();
-        redirect('vista_productos');
+        return redirect('nuevo_producto')->with('mensaje','Producto agregado correctamente');
     }
 
     /**
@@ -77,7 +78,12 @@ class ProductosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $editar = 'editar';
+        $producto = Producto::find($id);
+
+        return view('productos/form_nuevo_producto',['producto'=>$producto,'id'=>$id,'editar'=>$editar]);
+
+
     }
 
     /**
@@ -87,9 +93,20 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+        $codigo = $request->codigo;
+        $nombre_producto = $request->producto;
+        $estado = $request->estado;
+        $precio = $request->precio;
+
+        $producto = Producto::find($id);
+        $producto->Codigo = $codigo;
+        $producto->Producto = $nombre_producto;
+        $producto->Estado = $estado;
+        $producto->Precio = $precio;
+        $producto->save();
+        return redirect('lista_productos')->with('mensaje','Producto actualizado correctamente');
     }
 
     /**
@@ -100,6 +117,8 @@ class ProductosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Producto::where('Codigo',$id)->delete();
+        return redirect('lista_productos');
+
     }
 }

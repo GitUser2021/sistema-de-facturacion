@@ -1,4 +1,3 @@
-console.log('pdf_factura')
 let datos , factura_ , cliente_, vendedor_
 let form = document.getElementById('form-ver-factura')
 
@@ -24,6 +23,7 @@ function get_cliente_vendedor(data) {
         vendedor_[i].id_vendedor == factura_.id_vendedor? vendedor_ = vendedor_[i].Nombre:null
     }
 }
+
 function cargar_factura(data) {
     factura_detalles = data[0]
     productos = data[2]
@@ -40,9 +40,10 @@ function cargar_factura(data) {
             datos += `<td> ${item.precio_venta * item.cantidad} </td>`
             datos += '</tr>'
         })
-         return table(datos)
+         return tabla_pdf_factura(datos)
     }
-function table(data){
+
+function tabla_pdf_factura(data){
     let tabla_factura = ''
     let bootstrap = `<style>
 /*!
@@ -59,7 +60,7 @@ function table(data){
     let footer = `
         <div class="total-div">
             <span id="total-fecha">Fecha venta: ${factura_.fecha}</span>
-            <span id="total-cliente">Cliente: ${cliente_}</span>
+            <span id="total-cliente">${cliente_}</span>
             <span id="total-vendedor">Vendedor: ${vendedor_}</span>
             <span id="total">Total $</span>
             <span id="total-pesos">${factura_.total_venta}</span>
