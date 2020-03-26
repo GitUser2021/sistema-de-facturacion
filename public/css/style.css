@@ -118,8 +118,13 @@ li a {
     width: 50vw!important;
 }
 
+#div-productos{
+    height: 75vh!important;
+    overflow-y: auto;
+}
 #tabla-productos{
     overflow-y: auto;
+    font-size: smaller;
 }
 
 #cliente-encontrado {

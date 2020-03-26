@@ -15,7 +15,7 @@
         </form>
 
     @include('plantillas.mensaje_confirmacion')
-
+<div id="div-productos">
     <table class="table" id="tabla-productos">
             <thead class="thead-dark">
             <tr>
@@ -31,8 +31,11 @@
             <tbody>
             </tbody>
         </table>
-    </div>
 </div>
+    </div>
+
+{{--<div id="pagination"> {{$productos->appends( ['input' => $_SESSION['param'] ])->links()}} </div>--}}
+{{--<div id="pagination"> {{$productos->links()}} </div>--}}
 
 <script type="text/javascript" src="/js/vista_productos.js"></script>
 <script type="text/javascript" src="/js/acciones.js"></script>

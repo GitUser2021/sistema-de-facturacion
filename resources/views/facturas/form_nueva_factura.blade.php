@@ -57,11 +57,6 @@ $id = $id ?? '' ;
                 @csrf
             </form>
 
-            <form action="ver-factura" method="post" id="ver-factura" target="_blank">
-                @csrf
-                <input type="hidden" id="input-ver-factura" name="ver-factura">
-            </form>
-
                 <table id="tabla-factura" class="table mt-4">
                     <thead>
                     <tr>

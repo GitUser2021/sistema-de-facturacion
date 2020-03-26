@@ -40,7 +40,6 @@
          @csrf
     </form>
 
-    </div>
 
     <script type="text/javascript" src="/js/pdf_factura.js"></script>
     <script>

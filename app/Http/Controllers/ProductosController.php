@@ -15,6 +15,7 @@ class ProductosController extends Controller
      */
     public function index(Request $request)
     {
+        define('PAGE',5);
         $p = $request->p;
         $cod = $request->codigo;
         if($cod){
