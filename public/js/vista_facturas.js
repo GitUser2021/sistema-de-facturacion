@@ -4,19 +4,19 @@ let pagination = document.getElementById('pagination')
 let btn_nueva_factura = document.getElementById('btn-nueva-factura')
 
 
-btn_nueva_factura.addEventListener('click',e=>{
+btn_nueva_factura.addEventListener('click', e => {
     e.preventDefault()
-    window.open('/nueva_factura','_self')
+    window.open('/nueva_factura', '_self')
 })
 
-cargar_tabla( facturas.data , clientes, vendedores)
+cargar_tabla(facturas.data, clientes, vendedores)
 
 input.addEventListener('keyup', () => {
-    // si borro el input y queda en blanco se hace un fetch ?f=all para volver a traer todos los resultados.
-    input.value == ''? fetch_facturas('all'):fetch_facturas(input.value)
+    // si borro el input y queda en blanco se hace un fetch ?input=all para volver a traer todos los resultados.
+    input.value == '' ? fetch_facturas('all') : fetch_facturas(input.value)
 })
 
-function fetch_facturas(param){
+function fetch_facturas(param) {
     let page = `lista_facturas?input=${param}`
     history.pushState(page, 'title', page)
     input_param = param
@@ -29,7 +29,8 @@ function fetch_facturas(param){
             cargar_tabla(data.data, clientes, vendedores)
         })
 }
-function obtener_factura(text){
+
+function obtener_factura(text) {
     page_text = text
     start = page_text.indexOf('let facturas')
     end = page_text.indexOf('//end')
@@ -38,12 +39,14 @@ function obtener_factura(text){
     data = JSON.parse(data)
     return data
 }
-function obtener_paginador(data){
+
+function obtener_paginador(data) {
     start = page_text.indexOf('<nav>')
     end = page_text.indexOf('</nav>', start)
     nav = page_text.slice(start, end)
     data.last_page > 1 ? pagination.innerHTML = nav : pagination.innerHTML = null // solo inserto la paginacion si hay mas de 1 pagina.
 }
+
 function cargar_tabla(data, clientes, vendedores) {
     for (let i = 0; i < data.length; i++) {
         let row = document.createElement('tr')
@@ -90,9 +93,9 @@ function cargar_tabla(data, clientes, vendedores) {
         row.appendChild(col)
         tabla.children[i].children[6].innerHTML = `<button class="btn btn-primary btn-sm ml-1 ver ${data[i]['id_factura']} ">Ver</button><button class="btn btn-warning btn-sm ml-1 editar ${data[i]['id_factura']}">Editar</button><button class="btn btn-danger btn-sm ml-1 eliminar ${data[i]['id_factura']}">Eliminar</button>`
 
-        document.getElementsByClassName('ver')[i].addEventListener('click', e => ver(e,'factura'))
-        document.getElementsByClassName('editar')[i].addEventListener('click', e => editar(e,'factura'))
-        document.getElementsByClassName('eliminar')[i].addEventListener('click', e => eliminar(e,'factura'))
+        document.getElementsByClassName('ver')[i].addEventListener('click', e => ver(e, 'factura'))
+        document.getElementsByClassName('editar')[i].addEventListener('click', e => editar(e, 'factura'))
+        document.getElementsByClassName('eliminar')[i].addEventListener('click', e => eliminar(e, 'factura'))
     }
     input_param !== '' ? input.value = input_param : null
     input_param === 'all' ? input.value = '' : null

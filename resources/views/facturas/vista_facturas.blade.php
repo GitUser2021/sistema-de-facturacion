@@ -4,17 +4,18 @@
 
 @section('main')
 
-<div class="container" id="main">
+    <div class="container" id="main">
         <form class="form-inline" method="get" action="lista_facturas" id="form-lista-facturas">
             <div class="form-group mx-sm-3 mb-2" id="div-barra-busqueda">
                 <span><i class="fas fa-search"></i>Buscar Facturas</span>
                 <label for="factura" class="sr-only">Cliente o # de factura</label>
-                <input type="text" class="form-control" id="input-cliente-factura" name="input" placeholder="Cliente o # de factura">
-                    <button class="btn btn-primary mb-2 " id="btn-nueva-factura">+ Nueva Factura</button>
+                <input type="text" class="form-control" id="input-cliente-factura" name="input"
+                       placeholder="Cliente o # de factura">
+                <button class="btn btn-primary mb-2 " id="btn-nueva-factura">+ Nueva Factura</button>
             </div>
         </form>
 
-   @include('plantillas.mensaje_confirmacion')
+        @include('plantillas.mensaje_confirmacion')
 
         <table class="table" id="tabla-factura">
             <thead class="thead-dark">
@@ -37,7 +38,7 @@
     </div>
     <form action="ver_factura" method="post" id="form-ver-factura" target="_blank">
         <input type="hidden" name="datos">
-         @csrf
+        @csrf
     </form>
 
 

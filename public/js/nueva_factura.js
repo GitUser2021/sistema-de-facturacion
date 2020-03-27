@@ -13,6 +13,7 @@ let btn_buscar_cliente = document.getElementById('btn-buscar-cliente')
 let cliente = document.getElementById('cliente')
 let input_cliente_encontrado = document.getElementById('cliente-encontrado')
 let input_id_cliente = document.getElementById('id-cliente')
+let pagination = document.getElementById('pagination')
 
 
 btn_buscar_cliente.addEventListener('click', (e) => {
@@ -20,14 +21,14 @@ btn_buscar_cliente.addEventListener('click', (e) => {
     fetch(`/buscar_cliente/${cliente.value}`)
         .then(res => res.json())
         .then(data => {
-            if(data.id_cliente !== 'xx'){
+            if (data.id_cliente !== 'xx') {
                 enable_buttons(true)
                 ocultar_tabla_productos[0].style.opacity = 1
                 ocultar_tabla_productos[0].style.zIndex = 1
-            }else{
+            } else {
                 enable_buttons(false);
             }
-            input_cliente_encontrado.value =`Cliente: ${data.Nombre}`;
+            input_cliente_encontrado.value = `Cliente: ${data.Nombre}`;
             input_id_cliente.value = data.id_cliente
         })
 })
@@ -74,12 +75,7 @@ if (carrito.length > 0) {
 }
 
 // obtengo la lista de productos.
-fetch('/lista_productos?p=all')
-    .then(res => res.json())
-    .then(data => {
-            cargar_tabla(data)
-        }
-    )
+cargar_tabla(productos)
 
 function cargar_tabla(data) {
     let row, col, textNode
@@ -123,14 +119,14 @@ function listener_productos() {
 
 function fetch_productos(param) {
     if (isNaN(param) || param == 'all') {
-        fetch(`/lista_productos?p=${param}`)
+        fetch(`/lista_productos?input=${param}`)
             .then(res => res.json())
             .then(data => {
                 tabla_productos.innerHTML = null // limpio la tabla antes de cargar los nuevos datos
                 cargar_tabla(data)
             })
     } else {
-        fetch(`/lista_productos?codigo=${param}`)
+        fetch(`/lista_productos?input=${param}`)
             .then(res => res.json())
             .then(data => {
                 tabla_productos.innerHTML = null // limpio la tabla antes de cargar los nuevos datos

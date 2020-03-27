@@ -1,14 +1,14 @@
-:root{
+:root {
     --title-color: #697c37;
     --options-color: #ccda46;
     --table-color: #f4eec7;
-    --background-color:#b0a160;
+    --background-color: #b0a160;
     --font-color: #434e52;
     --footer-color: #434e52;
 }
 
-*{
-    box-sizing: border-box!important;
+* {
+    box-sizing: border-box !important;
     margin: 0;
     padding: 0;
 }
@@ -24,14 +24,14 @@ body {
     font-family: "Courier New";
 }
 
-header{
+header {
     align-self: flex-start;
     height: 40px;
     width: 100vw;
     background-color: var(--footer-color);
 }
 
-footer{
+footer {
     height: 40px;
     width: 100vw;
     background-color: var(--footer-color);
@@ -42,30 +42,30 @@ footer{
     color: var(--table-color);
 }
 
-nav{
+nav {
     padding: 0 !important;
 }
 
-#navbarNav{
+#navbarNav {
     justify-content: space-around;
-    height: 40px!important;
+    height: 40px !important;
 }
 
-#navbarNav ul{
+#navbarNav ul {
     justify-content: space-around;
     width: 50%;
 }
 
-a i,#navbarNav a{
+a i, #navbarNav a {
     padding-right: 0.5vw;
     color: var(--table-color);
-    height: 40px!important;
+    height: 40px !important;
     line-height: 40px;
 }
 
-li:hover,li:hover a, a:hover {
+li:hover, li:hover a, a:hover {
     text-decoration: none;
-    color: black!important;
+    color: black !important;
     background-color: #fff;
     cursor: pointer;
 }
@@ -75,72 +75,75 @@ li a {
     height: 40px;
 }
 
-#navbarNav li{
+#navbarNav li {
     padding: 0 5px;
 }
 
-#main{
+#main {
     height: 85vh !important;
 }
 
-#form-lista-facturas{
+#form-lista-facturas {
     display: flex;
     justify-content: center;
 }
 
-#div-barra-busqueda{
+#div-barra-busqueda {
     width: 100% !important;
     justify-content: space-between;
 }
 
-#div-barra-busqueda button{
-    margin-top: 8px!important;
+#div-barra-busqueda button {
+    margin-top: 8px !important;
 }
 
-#div-barra-busqueda input{
+#div-barra-busqueda input {
     width: 55vw;
 }
 
-#nueva-factura-main{
+#nueva-factura-main {
     display: flex;
     min-height: 87vh !important;
 }
 
-.nueva-factura-left{
+.nueva-factura-left {
     width: 50%;
 }
 
-.nueva-factura-left h1, .nueva-factura-right h1{
+.nueva-factura-left h1, .nueva-factura-right h1 {
     text-align: center;
 }
 
-.nueva-factura-right form input{
-    width: 50vw!important;
+.nueva-factura-right form input {
+    width: 50vw !important;
 }
 
-#div-productos{
-    height: 75vh!important;
-    overflow-y: auto;
-}
-#tabla-productos{
-    overflow-y: auto;
+#tabla-productos {
     font-size: smaller;
 }
 
 #cliente-encontrado {
     width: 20.5vw;
-    margin-top: 5px!important;
+    margin-top: 5px !important;
     font-size: 0.7rem;
 }
 
 #form-factura button {
-     margin-top: 5px!important;
+    margin-top: 5px !important;
 }
 
-#form-factura div{
+#form-factura div {
     display: flex;
-    margin-top: 5px!important;
+    margin-top: 5px !important;
     width: 50%;
+}
+
+.nueva-factura-tabla-productos {
+    height: 450px;
+}
+
+#tabla-factura {
+    font-size: smaller;
 }
 
 #medio_de_pago {
@@ -150,29 +153,29 @@ li a {
 
 #vendedor {
     font-size: 0.7rem;
-    width: 15vw!important;
+    width: 15vw !important;
 }
 
-.div-left form:first-of-type input{
+.div-left form:first-of-type input {
     width: 37vw;
 }
 
-.div-left form button{
-    margin-top: 0px!important;
+.div-left form button {
+    margin-top: 0px !important;
     margin-left: 5px;
 }
 
-.div-left{
+.div-left {
     height: 85vh;
     overflow-y: auto;
 }
 
-#tabla-clientes{
+#tabla-clientes {
     font-size: smaller;
 }
 
-.salir{
-    line-height: 24px!important;
+.salir {
+    line-height: 24px !important;
 }
 
 

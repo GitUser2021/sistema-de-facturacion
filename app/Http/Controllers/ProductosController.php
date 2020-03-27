@@ -15,25 +15,28 @@ class ProductosController extends Controller
      */
     public function index(Request $request)
     {
-        define('PAGE',5);
-        $p = $request->p;
-        $cod = $request->codigo;
-        if($cod){
-            $productos = Producto::where('Codigo','like', $cod.'%')->get();
-            return json_encode($productos);
+        define('PAGE', 5);
+        session_start();
+        $input = $request->input;
+        $_SESSION['param'] = $input;
+
+        if (is_numeric($input)) {
+            $productos = Producto::where('Codigo', 'like', $input . '%')->paginate(PAGE);
+            return view('productos/vista_productos', ['productos' => $productos]);
         }
-        if (!isset($p) ) {
-            $productos = Producto::get();
-            return view('productos/vista_productos',['productos'=>$productos]);
-        }else
-            if($p == 'all'){
-            $productos = Producto::get();
-            return json_encode($productos);
-        }else{
-            $productos = Producto::where('Producto','like', $p.'%')->get();
-            return json_encode($productos);
-        }
+        if (!isset($input)) {
+            $productos = Producto::paginate(PAGE);
+            return view('productos/vista_productos', ['productos' => $productos]);
+        } else
+            if ($input == 'all') {
+                $productos = Producto::paginate(PAGE);
+                return view('productos/vista_productos', ['productos' => $productos]);
+            } else {
+                $productos = Producto::where('Producto', 'like', $input . '%')->paginate(PAGE);
+                return view('productos/vista_productos', ['productos' => $productos]);
+            }
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -47,7 +50,7 @@ class ProductosController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -57,13 +60,13 @@ class ProductosController extends Controller
         $producto->Producto = $request->producto;
         $producto->Precio = $request->precio;
         $producto->save();
-        return redirect('nuevo_producto')->with('mensaje','Producto agregado correctamente');
+        return redirect('nuevo_producto')->with('mensaje', 'Producto agregado correctamente');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -74,7 +77,7 @@ class ProductosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -82,7 +85,7 @@ class ProductosController extends Controller
         $editar = 'editar';
         $producto = Producto::find($id);
 
-        return view('productos/form_nuevo_producto',['producto'=>$producto,'id'=>$id,'editar'=>$editar]);
+        return view('productos/form_nuevo_producto', ['producto' => $producto, 'id' => $id, 'editar' => $editar]);
 
 
     }
@@ -90,11 +93,11 @@ class ProductosController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $codigo = $request->codigo;
         $nombre_producto = $request->producto;
@@ -107,18 +110,18 @@ class ProductosController extends Controller
         $producto->Estado = $estado;
         $producto->Precio = $precio;
         $producto->save();
-        return redirect('lista_productos')->with('mensaje','Producto actualizado correctamente');
+        return redirect('lista_productos')->with('mensaje', 'Producto actualizado correctamente');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Producto::where('Codigo',$id)->delete();
+        Producto::where('Codigo', $id)->delete();
         return redirect('lista_productos');
 
     }
