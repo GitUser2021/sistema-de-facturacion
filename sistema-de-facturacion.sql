@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 26-03-2020 a las 10:35:12
+-- Tiempo de generación: 27-03-2020 a las 09:27:49
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -68,10 +68,12 @@ CREATE TABLE `detalle_facturas` (
 --
 
 INSERT INTO `detalle_facturas` (`id_detalle`, `id_factura`, `id_producto`, `cantidad`, `precio_venta`) VALUES
-(15, 88, 7790070228536, 2, 123),
-(16, 88, 7790070411839, 5, 43.5),
-(17, 88, 7790639002416, 4, 34),
-(18, 88, 7790130000744, 7, 77);
+(19, 88, 7790070228536, 2, 123),
+(20, 88, 7790070411839, 5, 43.5),
+(21, 88, 7790130000744, 7, 77),
+(22, 89, 7790070228536, 1, 99),
+(23, 89, 7790639002416, 3, 34),
+(24, 89, 7791905023081, 1, 50);
 
 -- --------------------------------------------------------
 
@@ -93,7 +95,8 @@ CREATE TABLE `facturas` (
 --
 
 INSERT INTO `facturas` (`id_factura`, `fecha`, `id_cliente`, `id_vendedor`, `total_venta`, `estado`) VALUES
-(88, '2020-03-26 05:19:09', 7, 3, 1138.5, 'pendiente');
+(88, '2020-03-26 05:19:09', 7, 3, 1002.5, 'pendiente'),
+(89, '2020-03-27 05:22:10', 14, 6, 251, 'pendiente');
 
 -- --------------------------------------------------------
 
@@ -126,7 +129,7 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`Codigo`, `Producto`, `Estado`, `Agregado`, `Precio`) VALUES
-(7790070228536, 'Aceite Ideal Girasol x 1500 cc', 'activo', '0000-00-00 00:00:00', 123),
+(7790070228536, 'Aceite Ideal Girasol x 1500 cc', 'activo', '0000-00-00 00:00:00', 99),
 (7790070230454, 'Aceite Ideal Girasol x 900 cc', 'activo', '0000-00-00 00:00:00', 75),
 (7790070411839, 'Arroz Gallo Parboil bolsa x 500 gr', 'activo', '0000-00-00 00:00:00', 43.5),
 (7790130000744, 'Aceto balsámico Monterrey x 250 cc', 'activo', '0000-00-00 00:00:00', 77),
@@ -257,19 +260,19 @@ ALTER TABLE `vendedores`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_facturas`
 --
 ALTER TABLE `detalle_facturas`
-  MODIFY `id_detalle` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_detalle` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `facturas`
 --
 ALTER TABLE `facturas`
-  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
