@@ -55,10 +55,17 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'codigo' => 'required|max:13',
+            'producto' => 'required|max:30',
+            'precio' => 'required|max:10',
+        ]);
+
         $producto = new Producto;
         $producto->Codigo = $request->codigo;
         $producto->Producto = $request->producto;
         $producto->Precio = $request->precio;
+        $producto->Estado = $request->estado;
         $producto->save();
         return redirect('nuevo_producto')->with('mensaje', 'Producto agregado correctamente');
     }
@@ -99,6 +106,12 @@ class ProductosController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'codigo' => 'required|max:13',
+            'producto' => 'required|max:30',
+            'precio' => 'required|max:10',
+        ]);
+
         $codigo = $request->codigo;
         $nombre_producto = $request->producto;
         $estado = $request->estado;

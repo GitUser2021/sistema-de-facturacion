@@ -3,7 +3,6 @@ let tabla = document.getElementById('tabla-factura').children[1]
 let pagination = document.getElementById('pagination')
 let btn_nueva_factura = document.getElementById('btn-nueva-factura')
 
-
 btn_nueva_factura.addEventListener('click', e => {
     e.preventDefault()
     window.open('/nueva_factura', '_self')

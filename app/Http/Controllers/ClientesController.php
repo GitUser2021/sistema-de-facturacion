@@ -54,13 +54,21 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+        'nombre' => 'required|max:30',
+        'telefono' => 'required|max:20',
+        'direccion' => 'required|max:30',
+        'email' => 'required|max:30',
+    ]);
+
         $cliente = new Cliente;
-        $cliente->Nombre =  $request->nom;
-        $cliente->Telefono =  $request->tel;
+        $cliente->Nombre =  $request->nombre;
+        $cliente->Telefono =  $request->telefono;
         $cliente->Email =  $request->email;
-        $cliente->Direccion =  $request->dire;
+        $cliente->Direccion =  $request->direccion;
+        $cliente->Estado =  $request->estado;
         $cliente->save();
-        echo 'cliente agregado';
+        return redirect('nuevo_cliente')->with('mensaje', 'Cliente agregado correctamente');
     }
 
     /**
@@ -113,9 +121,11 @@ class ClientesController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'nombre' => 'required|max:30',
+            'telefono' => 'required|max:20',
             'direccion' => 'required|max:30',
+            'email' => 'required|max:30',
         ]);
-
 
         $nombre = $request->nombre;
         $telefono = $request->telefono;

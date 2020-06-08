@@ -1,0 +1,199 @@
+@media only screen and (min-device-width: 1080px) {
+    body {
+        min-height: 100vh;
+    }
+
+    .div-facturas, .div-clientes, .div-productos {
+        width: 85vw;
+        height: 58vh;
+        overflow-x: auto;
+        overflow-y: auto;
+        margin-bottom: 10px;
+    }
+
+    .titulo-agregar-cliente, .titulo-agregar-producto {
+        text-align: center;
+    }
+
+    .div-form-agregar-cliente, .div-form-agregar-producto {
+    }
+
+    #form-agregar-cliente, #form-agregar-producto {
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-around;
+        color: #e5f5fb;
+    }
+
+    .input-codigo {
+        width: 20%;
+    }
+
+    .input-nombre-producto {
+        width: 55%;
+    }
+
+    .input-precio {
+        width: 20vw;
+    }
+
+    .input-enviar {
+        width: 10vw;
+    }
+
+    .form-2 {
+        display: flex;
+        justify-content: space-around;
+    }
+
+
+    .nueva-factura-left {
+        width: 50%;
+        height: 85vh;
+    }
+
+    #nueva-factura-main {
+        display: flex;
+        min-height: 87vh !important;
+    }
+
+    .nueva-factura-left h1, .nueva-factura-right h1 {
+        text-align: center;
+        font-size: xx-large;
+    }
+
+    .div-left form:first-of-type input {
+        width: 37vw;
+    }
+
+    .div-left form button {
+        margin-top: 0px !important;
+        margin-left: 5px;
+    }
+
+    #cliente-encontrado {
+        width: 25vw;
+        height: inherit;
+        margin-top: 5px !important;
+    }
+
+    #form-factura button {
+        margin-top: 5px !important;
+        height: inherit;
+        width: inherit;
+        font-size: small;
+        line-height: 15px;
+    }
+
+    .div-left form:first-of-type input {
+        width: 25vw;
+    }
+    .div-left h1{
+        margin-top: inherit;
+    }
+    .vendedor-select, .medio-de-pago-select {
+        font-size: 0.7rem;
+        width: 80% !important;
+    }
+
+    .vendedor, .medio-de-pago {
+        width: 100% !important;
+    }
+
+    .vendedor label, .medio-de-pago label {
+        margin-top: 5px;
+    }
+
+    #medio_de_pago {
+        width: 71% !important;
+    }
+
+    #btn-ver-factura {
+        height: auto !important;
+        width: 25% !important;
+        align-self: center;
+    }
+
+    .working {
+        display: flex;
+    }
+
+    .div-working {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+    }
+
+
+    #nueva-factura-main {
+        min-height: 87vh !important;
+        width: 95vw;
+    }
+
+    .nueva-factura-left {
+        height: 40vh;
+    }
+
+    .div-tabla {
+        height: 44vh;
+    }
+
+    .div-form-vendedor {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        height: 20vh;
+    }
+
+    .div-left {
+        height: 42vh;
+        width: 100% !important;
+        overflow-y: auto;
+        padding: 0;
+    }
+
+
+    .div-right {
+        width: 47vw !important;
+        height: 20vh;
+    }
+
+    .div-form-right {
+        height: 20vh;
+        width: 100% !important;
+        padding: 0;
+    }
+
+    .nueva-factura-right {
+        width: 100%;
+        height: 20vh;
+        overflow-x: hidden;
+    }
+
+    .nueva-factura-tabla-productos {
+        width: 100% !important;
+        height: 65vh;
+        border: 1px solid yellow;
+    }
+
+    .tabla-factura {
+        font-size: smaller;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 45vw;
+        border: 1px solid yellow;
+    }
+
+    .tabla-facturas {
+        font-size: smaller;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+}
+
+
+
+

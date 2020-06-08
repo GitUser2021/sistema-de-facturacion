@@ -16,4 +16,5 @@ $dompdf->render();
 // Output the generated PDF to Browser
 //$dompdf->stream('FicheroEjemplo.pdf');
 $dompdf-> stream("FicheroEjemplo.pdf", array("Attachment" => false));
+//exit; // sin esta salida el pdf se carga como html y se ven caracteres extraños, (solo en el servidor, en local anda bien)
 

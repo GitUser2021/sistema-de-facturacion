@@ -1,7 +1,7 @@
 :root {
     --title-color: #697c37;
     --options-color: #ccda46;
-    --table-color: #f4eec7;
+    --table-color: #e5e5e5;
     --background-color: #b0a160;
     --font-color: #434e52;
     --footer-color: #434e52;
@@ -18,9 +18,7 @@ body {
     color: var(--font-color);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     font-family: "Courier New";
 }
 
@@ -42,8 +40,22 @@ footer {
     color: var(--table-color);
 }
 
+#pagination {
+}
+
+#pagination nav {
+    display: flex;
+    width: 100%;
+}
+
+#pagination nav ul {
+    justify-content: center;
+    width: 100%;
+}
+
 nav {
     padding: 0 !important;
+    z-index: 9;
 }
 
 #navbarNav {
@@ -54,6 +66,12 @@ nav {
 #navbarNav ul {
     justify-content: space-around;
     width: 50%;
+    background-color: #434e52;
+}
+
+.dropdown-menu {
+    background-color: #434e52;
+    color: var(--table-color);
 }
 
 a i, #navbarNav a {
@@ -63,10 +81,10 @@ a i, #navbarNav a {
     line-height: 40px;
 }
 
-li:hover, li:hover a, a:hover {
+li:hover, a:hover {
     text-decoration: none;
-    color: black !important;
-    background-color: #fff;
+    color: var(--table-color);
+    background-color: #58580f !important;
     cursor: pointer;
 }
 
@@ -97,21 +115,34 @@ li a {
     margin-top: 8px !important;
 }
 
+#div-barra-busqueda span {
+    display: inline-block;
+    text-align: center;
+    width: 90vw !important;
+}
+
 #div-barra-busqueda input {
     width: 55vw;
 }
 
+#input-cliente-factura {
+    width: 90vw !important;
+}
+
 #nueva-factura-main {
-    display: flex;
     min-height: 87vh !important;
+    width: 90vw;
 }
 
 .nueva-factura-left {
-    width: 50%;
+    width: 100%;
+    height: 120vh;
 }
 
-.nueva-factura-left h1, .nueva-factura-right h1 {
+.div-left h1, .nueva-factura-right h1 {
+    font-size: medium;
     text-align: center;
+    margin-top: 10px;
 }
 
 .nueva-factura-right form input {
@@ -122,14 +153,33 @@ li a {
     font-size: smaller;
 }
 
+#input-producto, #input-cliente {
+    width: 90vw !important;
+}
+
+.div-facturas, .div-clientes, .div-productos {
+    width: 95vw;
+    height: 55vh;
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+.div-clientes button, .div-productos button, .div-facturas button {
+    width: 80px !important;
+}
+
 #cliente-encontrado {
-    width: 20.5vw;
+    width: 65vw;
+    height: 12vw;
     margin-top: 5px !important;
-    font-size: 0.7rem;
 }
 
 #form-factura button {
     margin-top: 5px !important;
+    height: 12vw;
+    width: 24vw;
+    font-size: small;
+    line-height: 15px;
 }
 
 #form-factura div {
@@ -138,37 +188,75 @@ li a {
     width: 50%;
 }
 
-.nueva-factura-tabla-productos {
-    height: 450px;
+.div-left {
+    height: 70vh;
+    width: 100% !important;
+    overflow-y: auto;
+    padding: 0;
 }
 
-#tabla-factura {
+.div-tabla {
+    height: 50vh;
+}
+
+.tabla-factura {
     font-size: smaller;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    width: 70vw;
 }
 
+.nueva-factura-right {
+    width: 100%;
+    height: 15vh;
+    overflow-x: scroll;
+}
+.nueva-factura-tabla-productos{
+    height: 40vh;
+}
 #medio_de_pago {
-    width: 45% !important;
+    width: 55% !important;
     font-size: 0.7rem;
 }
 
-#vendedor {
+#btn-ver-factura {
+    width: 40% !important;
+    align-self: center;
+}
+
+.vendedor-select, .medio-de-pago-select {
     font-size: 0.7rem;
-    width: 15vw !important;
+    width: 100% !important;
+}
+
+.vendedor, .medio-de-pago {
+    width: 100% !important;
+}
+
+.vendedor label, .medio-de-pago label {
+    margin-top: 5px;
+}
+
+.medio-de-pago label {
+    font-size: 1rem;
 }
 
 .div-left form:first-of-type input {
-    width: 37vw;
+    width: 65vw;
 }
 
 .div-left form button {
-    margin-top: 0px !important;
+    margin-top: -15px !important;
     margin-left: 5px;
 }
 
-.div-left {
-    height: 85vh;
-    overflow-y: auto;
+.div-form-vendedor {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    height: 30vh;
 }
+
 
 #tabla-clientes {
     font-size: smaller;
@@ -179,9 +267,50 @@ li a {
 }
 
 
+.titulo-agregar-cliente, .titulo-agregar-producto {
+    text-align: center;
+}
+
+.div-form-agregar-cliente, .div-form-agregar-producto {
+    background-color: #434e52;
+    display: flex;
+    align-items: center;
+    height: 55vh;
+}
+
+#form-agregar-cliente, #form-agregar-producto {
+    border: 1px solid orange;
+    background-color: #534c2e;
+    height: 50vh;
+    align-content: center;
+}
 
 
+#form-agregar-cliente .form-1, #form-agregar-cliente .form-2 {
+    margin-top: 5px;
+}
+
+.form-1, .form-2 {
+    margin-top: 25px;
+    color: #e5f5fb;
+}
+
+.input-codigo,
+.input-nombre-producto,
+.input-precio,
+.input-enviar {
+    width: 65vw;
+}
 
 
+.form-2 input {
+    margin-bottom: 10px;
+}
 
+.nueva-factura-right div{
+    width: 100% !important;
+}
 
+#input-productos{
+    width: 100% !important;
+}

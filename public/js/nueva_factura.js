@@ -3,7 +3,8 @@ let input_total_factura = document.getElementById('total-factura')
 let input_carrito = document.getElementById('carrito')
 let tabla_factura = document.getElementById('tabla-factura').children[1]
 let tabla_productos = document.getElementById('tabla-productos').children[1]
-let ocultar_tabla_productos = document.getElementsByClassName('nueva-factura-right')
+// let ocultar_tabla_productos = document.getElementsByClassName('nueva-factura-right')
+    let ocultar_tabla_productos = document.getElementsByClassName('div-right')
 let btn_guardar_factura = document.getElementById('btn-guardar-factura')
 let tbody_factura = document.getElementById('tbody-factura')
 let btn_agregar = document.getElementsByClassName('btn-agregar')
@@ -14,7 +15,6 @@ let cliente = document.getElementById('cliente')
 let input_cliente_encontrado = document.getElementById('cliente-encontrado')
 let input_id_cliente = document.getElementById('id-cliente')
 let pagination = document.getElementById('pagination')
-
 
 btn_buscar_cliente.addEventListener('click', (e) => {
     e.preventDefault()

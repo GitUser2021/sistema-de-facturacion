@@ -16,8 +16,8 @@
         </form>
 
         @include('plantillas.mensaje_confirmacion')
-
-        <table class="table" id="tabla-factura">
+        <div class="div-facturas">
+        <table class="table tabla-facturas" id="tabla-factura">
             <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
@@ -32,6 +32,7 @@
             <tbody>
             </tbody>
         </table>
+        </div>
 
         <div id="pagination"> {{$facturas->appends( ['input' => $_SESSION['param'] ])->links()}} </div>
 

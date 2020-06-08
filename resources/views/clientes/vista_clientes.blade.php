@@ -16,6 +16,7 @@
 
     @include('plantillas.mensaje_confirmacion')
 
+    <div class="div-clientes">
     <table class="table" id="tabla-clientes">
             <thead class="thead-dark">
             <tr>
@@ -33,6 +34,7 @@
             </tbody>
         </table>
     </div>
+
 </div>
 <script type="text/javascript" src="/js/vista_clientes.js"></script>
 <script type="text/javascript" src="/js/acciones.js"></script>

@@ -4,7 +4,6 @@ let tabla = document.getElementById('tabla-productos').children[1]
 input_producto.addEventListener('keypress', cargar_tabla)
 let pagination = document.getElementById('pagination')
 
-
 btn_nuevo_producto.addEventListener('click', e => {
     e.preventDefault()
     window.open('/nuevo_producto', '_self')

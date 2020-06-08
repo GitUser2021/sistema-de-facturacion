@@ -8,4 +8,5 @@ class Producto extends Model
 {
     public $timestamps = false;
     protected $primaryKey = 'Codigo';
+    protected $keyType = 'bigint';
 }
